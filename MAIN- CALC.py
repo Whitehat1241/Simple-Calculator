@@ -4,22 +4,10 @@
 # Integration 2: This program will also take the square root and perform quadratic equations
 
 import math
-
-# Loop to preform multiple operations at once
-start = print(input("To begin, select any key followed by "
-                    "the enter button: ",))
-beginList = {start}
+import time
 
 
-for start in beginList:
-
-    a = 'SELECT'
-    b = 'OPERATION'
-    greeting = [a, b]
-    print(*greeting, sep=" AN ", end="\n    -------\n", )
-    while True:
-
-        # Define Operations
+def operations():
         print("q or Q: QUIT")
         print("1: Addition")
         print("2: Subtraction")
@@ -28,6 +16,31 @@ for start in beginList:
         print("5: Raise to a Power")
         print("6: Square Root")
         print("7: Quadratic formula", end="\n     -------\n")
+        
+# Loop to preform multiple operations at once
+
+
+start = input("To begin, select any key followed by the enter button: ",)
+beginList = {start}
+
+
+for start in beginList:
+
+    a = 'SELECT'
+    b = 'OPERATION'
+    greeting = [a, b]
+    print("Starting in")
+    count = 3
+
+    for e in range(3):
+        print(count, '...')
+        time.sleep(1)
+        count -= 1
+    print(*greeting, sep=" AN ", end="\n    -------\n", )
+    
+    while True:
+        operations()
+        
         options = ['1', '2', '3', '4', '5', '6', '7', 'q', 'Q']
 
         choice = input("Enter Your Choice: ", )
@@ -38,17 +51,24 @@ for start in beginList:
                 if int(choice) == 1:  # Addition
                     num1 = float(input("Enter Number 1: ", ))
                     num2 = float(input("Enter Number 2: ", ))
-                    print(num1, "+", num2, "=", (num1 + num2))
+                    num1 += num2
+                    print("----------------------------")
+                    print(num1, "+", num2, "=", num1)
+                    print("----------------------------")
 
                 elif int(choice) == 2:  # Subtraction
                     num1 = float(input("Enter Number 1: ", ))
                     num2 = float(input("Enter Number 2: ", ))
+                    print("----------------------------")
                     print(num1, "-", num2, "=", (num1 - num2))
+                    print("----------------------------")
 
                 elif int(choice) == 3:  # Multiplication
                     num1 = float(input("Enter Number 1: ", ))
                     num2 = float(input("Enter Number 2: ", ))
+                    print("----------------------------")
                     print(num1, "*", num2, "=", (num1 * num2))
+                    print("----------------------------")
 
                 elif int(choice) == 4:  # Division
                     try:
@@ -57,23 +77,32 @@ for start in beginList:
                         if num2 == 0.0:  # Checking if user selects 0.0
                             print("ERROR: DIVIDE BY 0")
                         else:
-                            print("\nResult: {} / {} = {:.2f}".format(num1, num2, num1 / num2))
+                            print("----------------------------")
+                            print("Result: {} / {} = {:.2f}".format(num1, num2, num1 / num2))
                             print("\nRemainder :", (num1 % num2))
+                            print("----------------------------")
                     except:
                         print("ERROR")
 
                 elif int(choice) == 5:  # Raising to a Power
                     num1 = float(input("Enter Number 1: ", ))
-                    num2 = float(input("Enter Number 2: ", ))
-                    print(num1, "**", num2, "=", (num1 ** num2))
+                    power = float(input("Enter Power: ", ))
+                    answer = "{:.9f}".format(num1 ** power)
+                    print("----------------------------")
+                    print("Result: ", answer)
+                    print("----------------------------")
 
                 elif int(choice) == 6:  # Square Root
-                    while True:
                         try:
                             num1 = float(input("Enter Power of Root: ", ))
                             num2 = float(input("Enter the Radicand:", ))
-                            print(int(num1), "√", int(num2), " = ", num2 ** (1 / num1))
-                            break
+                            if num1 >= 0:
+                                answer = "{:.9f}".format(num2 ** (1 / num1))  # add code: print int if answer is whole #
+                                print("----------------------------")
+                                print("Result: ", answer)
+                                print("----------------------------")
+                            else:
+                                print("ERROR")    
                         except:
                             pass
 
@@ -94,7 +123,7 @@ for start in beginList:
                                 solution1 = (-b + math.sqrt(f)) / (2 * a)
                                 solution2 = (-b - math.sqrt(f)) / (2 * a)
                                 answer = "ROOTS EQUAL: {:.10f} and {:.10f}".format(solution1, solution2)
-                                print("Result: ", answer)  # I want answer to have 10 numbers// 10 after decimal and 10
+                                print("Result: ", answer)  # Answer will have 10 numbers// 10 after decimal and 10
                                 # with decimal
 
                                 print("Done!", end="\n     -------\n")
@@ -115,10 +144,9 @@ for start in beginList:
             print("     -------")
 
 
-# Operating system
 # ****import parser? what is that
 
-#**** An operating system is software/program that acts as an interface between the user and the computer hardware
+# **** An operating system is software/program that acts as an interface between the user and the computer hardware
 # controls the execution of all kinds of programs*****
 
 
