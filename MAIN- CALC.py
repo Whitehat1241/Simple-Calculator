@@ -7,19 +7,11 @@ import math
 import time
 
 
-def operations():
-        print("q or Q: QUIT")
-        print("1: Addition")
-        print("2: Subtraction")
-        print("3: Multiplication")
-        print("4: Division")
-        print("5: Raise to a Power")
-        print("6: Square Root")
-        print("7: Quadratic formula", end="\n     -------\n")
+def functions(one, two, three, four, five, six, seven, eight):
+    print(one + two + three + four + five + six + seven + eight)
+       
         
 # Loop to preform multiple operations at once
-
-
 start = input("To begin, select any key followed by the enter button: ",)
 beginList = {start}
 
@@ -39,7 +31,9 @@ for start in beginList:
     print(*greeting, sep=" AN ", end="\n    -------\n", )
     
     while True:
-        operations()
+        functions("q or Q: QUIT\n", "1: Addition\n", "2: Subtraction\n", "3: Multiplication\n"
+                  , "4: Division\n", "5: Raise to a Power\n", "6: Square Root\n",
+                  "7: Quadratic formula")
         
         options = ['1', '2', '3', '4', '5', '6', '7', 'q', 'Q']
 
@@ -123,11 +117,12 @@ for start in beginList:
                                 solution1 = (-b + math.sqrt(f)) / (2 * a)
                                 solution2 = (-b - math.sqrt(f)) / (2 * a)
                                 answer = "ROOTS EQUAL: {:.10f} and {:.10f}".format(solution1, solution2)
+                                print("---------------------------------------------------------")
                                 print("Result: ", answer)  # Answer will have 10 numbers// 10 after decimal and 10
                                 # with decimal
-
-                                print("Done!", end="\n     -------\n")
+                                print("---------------------------------------------------------")
                                 possible = not True
+                                
                             elif (b ** 2) < (4 * a * c):
                                 print("ERROR: NON-REAL ANSWER", "\n    XXXXXXX    ")
                                 break
