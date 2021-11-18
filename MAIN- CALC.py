@@ -31,9 +31,10 @@ for start in beginList:
     print(*greeting, sep=" AN ", end="\n    -------\n", )
     
     while True:
-        functions("q or Q: QUIT\n", "1: Addition\n", "2: Subtraction\n", "3: Multiplication\n"
-                  , "4: Division\n", "5: Raise to a Power\n", "6: Square Root\n",
-                  "7: Quadratic formula")
+        functions("q or Q: QUIT\n", "1: Addition\n", "2: Subtraction\n"
+                  , "3: Multiplication\n", "4: Division\n"
+                  , "5: Raise to a Power\n", "6: Square Root\n"
+                  , "7: Quadratic formula")
         
         options = ['1', '2', '3', '4', '5', '6', '7', 'q', 'Q']
 
