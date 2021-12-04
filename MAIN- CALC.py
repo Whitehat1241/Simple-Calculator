@@ -9,6 +9,7 @@ import time
 
 
 def simple_calc(one, two, three, four, five, six, seven, eight):
+    """This will give the user the seldct opertions the calculator can do."""
     print(one + two + three + four + five + six + seven + eight)
 
 
@@ -40,6 +41,12 @@ def start_calc():
         if choice in options:
             try:
                 """Check for which operation is selected & what to do"""
+                """When dividing, if one of the inputs are == 0, it will
+                 result in an error"""
+                """When finding the square root, answers will be formatted
+                 to 9 digits unless if a whole number"""
+                """"""
+
                 if int(choice) == 1:  # Addition
                     num1 = float(input("Enter Number 1: ", ))
                     num2 = float(input("Enter Number 2: ", ))
@@ -111,14 +118,16 @@ def start_calc():
                         num2 = float(input("Enter the nth root:", ))
                         if num1 >= 1 and num2 >= 1:
                             answer = "{:.9f}".format(num2 ** (1 / num1))
-                            if num2 ** (1 / num1) == round(num2 ** (1 / num1)):
+                            if num2 ** (1 / num1) == round(num2 **
+                                                           (1 / num1)):
                                 print()
                                 for e in range(1):
                                     print('LOADING...')
                                     time.sleep(1)
                                     count -= 1
                                     print("----------------------------")
-                                    print("Result: ", round(num2 ** (1 / num1)))
+                                    print("Result: ", round(num2 **
+                                                            (1 / num1)))
                                     print("----------------------------")
                             else:
                                 for e in range(1):
@@ -142,8 +151,7 @@ def start_calc():
                         b = float(input("b=? ", ))
                         c = float(input("c=? ", ))
                         d = (b ** 2)
-                        e = (4 * a * c)  # For final project, delete variables
-                        # d & e// change variable f to d----|
+                        e = (4 * a * c)
                         f = d - e
                         if (d != 0) and (d > e):
                             if (f > 0) or (f == 0):  # This part will return a
@@ -157,17 +165,18 @@ def start_calc():
                                     print('LOADING...')
                                     time.sleep(1)
                                     count -= 1
-                                    print("-----------------------------------"
-                                          "----------------------")
+                                    print("----------------------------------"
+                                          "-----------------------")
                                     print("Result: ", answer)  # Answer will
                                     # have 10 digits (including the whole #'s
                                     # and the decimal #'s due to the format
-                                    print("-----------------------------------"
-                                          "----------------------")
+                                    print("----------------------------------"
+                                          "-----------------------")
                                     possible = not True
 
                             elif (b ** 2) < (4 * a * c):
-                                print("ERROR: NON-REAL ANSWER", "\n    XXXXXXX    ")
+                                print("ERROR: NON-REAL ANSWER", "\n    "
+                                                                "XXXXXXX    ")
                                 break
                         else:
                             break
